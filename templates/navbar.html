@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-white bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/home/">E-Commerce</a>
+      <a class="navbar-brand" href="/home/"><B>RAGS</B></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -41,7 +41,14 @@
           <li class="nav-item">
             <a class="nav-link {% if request.path == "/login/" %} active {% endif %}" aria-current="page" href="/login/">login</a>
           </li>
+          {% comment %} {% else if %}
+          {% comment %} cart section 
+          {% if request.user.is_authenticated %}
+          <span class="storefront_add_to_cart">
+              <a href="{% url 'add_to_cart' book.id %}">[Add to Cart]</a>
+          </span> {% endcomment %}
           {% endif %}
+
           
         </ul>
         <form class="d-flex">

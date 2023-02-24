@@ -96,3 +96,35 @@ def deletepost(request,id):
         return render(request,'dashboard.html' ,{ 'posts' :post, 'full_name' :full_name})
     else:
         return HttpResponseRedirect('/login/')
+        
+#         # cart product add and remove
+# def add_to_cart(request,book_id):
+#         if request.user.is_authenticated():
+#             try:
+#                 book = Book.objects.get(pk=book_id)
+#             except ObjectDoesNotExist:
+#                 pass
+#             else :
+#                 try:
+#                     cart = Cart.objects.get(User = request.user, active = True)
+#                 except ObjectDoesNotExist:
+#                     cart = Cart.objects.create(user = request.user)
+#                     cart.save()
+#                     cart.add_to_cart(book_id)
+#                     return redirect('/cart/')
+#                 else:
+#                     return redirect('/index/')
+
+
+# def remove_from_cart(request, book_id):
+#     if request.user.is_authenticated():
+#         try:
+#             book = Book.objects.get(pk = book_id)
+#         except ObjectDoesNotExist:
+#             pass 
+#         else:
+#             cart = Cart.objects.get(user = request.user, active = True)
+#             cart.remove_from_cart(book_id)
+#         return redirect('cart')
+#     else:
+#         return redirect('index')

@@ -35,7 +35,10 @@ urlpatterns = [
     path('sign_up/',views.user_signup, name="sign_up"),
     path('login/',views.user_login, name="user_login"),
     path('user_logout/',views.user_logout, name="user_logout"),
-   path('oauth/', include('social_django.urls', namespace='social')),
+    path('oauth/', include('social_django.urls', namespace='social')),
+    # path(r'^add/(\d+)', views.add_to_cart, name='add_to_cart'),  
+    # path(r'^remove/(\d+)', views.remove_from_cart, name='remove_from_cart'),
+    # path(r'^cart/', views.mycart, name='cart'),
 
 ]
 

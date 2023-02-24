@@ -5,6 +5,7 @@ from django.utils.translation import gettext, gettext_lazy as _
 from .models import Post
 
 
+
 class SignUpForm(UserCreationForm):
     password1 = forms.CharField(
         label='Password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
