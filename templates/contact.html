@@ -3,17 +3,35 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+{% load static %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel="stylesheet" href=" {% static '/ecom/css/contact.css' %} ">
     <title>Contact</title>
   </head>
   <body>
     
-    {% include 'navbar.html' %}
-
+    {% comment %} {% include 'navbar.html' %} {% endcomment %}
+    
+   
+       
+        <div class="container">
+            <form   action="https://formspree.io/f/mwkjqpgr"
+            method="POST">
+                <h3>GET IN TOUCH WITH US</h3>
+                <input type="text"  id="name" name="name" placeholder="your name" required>
+                <input type="email" name="email" id="email" placeholder="your email id" required>
+                <input type="text" name="phone" id="phone" placeholder="your phone no." required>
+                <textarea   id="message" name="message" rows="4" placeholder="how can we help you? " ></textarea>
+                <button type="submit"> submit </button>
+            </form>
+        </div>
+        <script src="https://smtpjs.com/v3/smtp.js">
+        </script>
+        
+ 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    
-  </body>
+  
+</body>
 </html>
+ 

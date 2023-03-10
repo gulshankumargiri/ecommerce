@@ -11,6 +11,7 @@
     <title> RAGS Online Fashion Shopping for Men, Women, Accessories - Fashion.com</title>
     <link rel="shortcut icon" href="/media/picscart/fabicon.svg" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="ecom/js/script.js"></script>
     {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> {% endcomment %}
 
    
@@ -31,25 +32,28 @@
             
            <div class="mt-2 md:mb-0 mb-6">
                 <a href="/home/" class="link text-gray-600 hover:text-purple-600 p-4"><button>Home</button></a>
-                <a href="/login/" class="link text-gray-600 hover:text-purple-600 p-4">Shop</a>
+                <a href="/dashboard/" class="link text-gray-600 hover:text-purple-600 p-4">Upload items</a>
                 <a href="/login/" class="link text-gray-600 hover:text-purple-600 p-4">Login</a>
                 <a href="/contact/" class="link text-gray-600 hover:text-purple-600 p-4">Contact</a>
             </div> 
-            <div class="mt-2">
-                <a href="#" class="bg-purple-600 text-gray-50 rounded-full hover:text-purple-700 px-5 p-3">
+            {% comment %} cart details {% endcomment %}
+            <div  class="mt-2" id="cart"  >
+                <a href="#" class="bg-purple-500 text-grey-50 rounded-full text-grey-700 px-5 p-3  ">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline-block w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                     </svg>
-                    Cart <span idk,="numb"></span>
+                    {% comment %} total item {% endcomment %}
+                    Cart -<span id="totalitem" ></span>
+                    <ol id="addeditem"  ></ol> 
                 </a>
             </div>
         </div>
         <!-- hero section -->
         <div class="md:flex md:flex-row mt-20">
             <div class="flex  flex-col justify-center items-center md:w-2/5">
-                <h2 class="font-serif text-5xl text-gray-600 mb-4 text-center md:text-left md:self-start">offers show here</h2>
+                <h2 class="font-serif text-5xl text-gray-600 mb-4 text-center md:text-left md:self-start">DHAMAKA OFFER</h2>
                 <p class="uppercase text-gray-600 tracking-wide text-center md:text-left md:self-start">Shop And Get 50% Off..</p>
-                <p class="uppercase text-gray-600 tracking-wide text-center md:text-left md:self-start">WeLCOME TO RAGS</p>
+                <p class="uppercase text-gray-600 tracking-wide text-center md:text-left md:self-start">WeLCOME TO RAGS SHOPPING </p>
                 
                 <a href="/home/" class="bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-4 px-8 text-gray-50 uppercase text-xl md:self-start my-5">Shop Now</a>
             </div>
@@ -90,7 +94,7 @@
                             <div class="border-2 border-gray-300 text-gray-400 rounded-md text-xs px-2 py-1 mr-2">S</div>
                         </div>
                         <div class="flex flex-col justify-between">
-                            <button  class="cart flex flex-row justify-center my-2 hover:from-pink-600 hover:to-pink-600 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 text-gray-50 text-sm ">
+                            <button  class="cart flex flex-row justify-center my-2 hover:from-pink-600 hover:to-pink-600 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 text-gray-50 text-sm "  value="add to cart" onclick="add('Men's T-Shirt')">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-1 w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                                 </svg>
@@ -126,7 +130,7 @@
                             <div class="border-2 border-gray-300 text-gray-400 rounded-md text-xs px-2 py-1 mr-2">S</div>
                         </div>
                         <div class="cart flex flex-col justify-between">
-                            <button  class="btn btn-primary cart flex flex-row justify-center my-2 hover:from-pink-600 hover:to-pink-600 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 text-gray-50 text-sm btn btn-primary cart">
+                            <button  class="btn btn-primary cart flex flex-row justify-center my-2 hover:from-pink-600 hover:to-pink-600 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 text-gray-50 text-sm " value="add to cart" onclick="add('Slim Khaki Tousers')">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-1 w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                                 </svg>
@@ -163,7 +167,7 @@
                             <div class="border-2 border-gray-300 text-gray-400 rounded-md text-xs px-2 py-1 mr-2">S</div>
                         </div>
                         <div class="flex flex-col justify-between">
-                            <button  class="cart flex flex-row justify-center my-2 hover:from-pink-600 hover:to-pink-600 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 text-gray-50 text-sm btn btn-primary cart">
+                            <button  class="cart flex flex-row justify-center my-2 hover:from-pink-600 hover:to-pink-600 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 text-gray-50 text-sm " value="add to cart" onclick="add('Nike Shoes')">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-1 w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                                 </svg>
@@ -200,7 +204,7 @@
                             <div class="border-2 border-gray-300 text-gray-400 rounded-md text-xs px-2 py-1 mr-2">S</div>
                         </div>
                         <div class="flex flex-col justify-between">
-                            <button  class="cart flex flex-row justify-center my-2 hover:from-pink-600 hover:to-pink-600 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 text-gray-50 text-sm btn btn-primary cart">
+                            <button  class="cart flex flex-row justify-center my-2 hover:from-pink-600 hover:to-pink-600 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 text-gray-50 text-sm " value="add to cart" onclick="add('Wrist Watch')">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-1 w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                                 </svg>
@@ -252,7 +256,7 @@
                             <div class="border-2 border-gray-300 text-gray-400 rounded-md text-xs px-2 py-1 mr-2">S</div>
                         </div>
                         <div class="flex flex-col justify-between">
-                            <button  class="cart cart flex flex-row justify-center my-2 hover:from-pink-600 hover:to-pink-600 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 text-gray-50 text-sm btn btn-primary cart">
+                            <button  class=" flex flex-row justify-center my-2 hover:from-pink-600 hover:to-pink-600 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 text-gray-50 text-sm " value="add to cart" onclick="add('V Neck Tassel Cape')">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-1 w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                                 </svg>
@@ -288,7 +292,7 @@
                             <div class="border-2 border-gray-300 text-gray-400 rounded-md text-xs px-2 py-1 mr-2">S</div>
                         </div>
                         <div class="flex flex-col justify-between">
-                            <button  class="cart flex flex-row justify-center my-2 hover:from-pink-600 hover:to-pink-600 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 text-gray-50 text-sm btn btn-primary cart">
+                            <button  class="cart flex flex-row justify-center my-2 hover:from-pink-600 hover:to-pink-600 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 text-gray-50 text-sm " value="add to cart" onclick="add('Printed Wrap Dress')">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-1 w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                                 </svg>
@@ -325,7 +329,7 @@
                             <div class="border-2 border-gray-300 text-gray-400 rounded-md text-xs px-2 py-1 mr-2">S</div>
                         </div>
                         <div class="flex flex-col justify-between">
-                            <a href="#" class="cart flex flex-row justify-center my-2 hover:from-pink-600 hover:to-pink-600 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 text-gray-50 text-sm">
+                            <a href="#" class="cart flex flex-row justify-center my-2 hover:from-pink-600 hover:to-pink-600 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 text-gray-50 text-sm" value="add to cart" onclick="add('Blue Denim Dress')">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-1 w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                                 </svg>
@@ -361,8 +365,9 @@
                             <div class="border-2 border-gray-300 text-gray-400 rounded-md text-xs px-2 py-1 mr-2">M</div>
                             <div class="border-2 border-gray-300 text-gray-400 rounded-md text-xs px-2 py-1 mr-2">S</div>
                         </div>
+                        {% comment %} adding cart  {% endcomment %}
                         <div class="flex flex-col justify-between">
-                            <button  class="cart flex flex-row justify-center my-2 hover:from-pink-600 hover:to-pink-600 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 text-gray-50 text-sm ">
+                            <button  class="cart flex flex-row justify-center my-2 hover:from-pink-600 hover:to-pink-600 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 text-gray-50 text-sm" value="add to cart" onclick="add('High Waist Denim Skirt')">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-1 w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                                 </svg>
@@ -381,6 +386,9 @@
             </div>
 
         </div>
+
+        <hr>
+
         <!-- newsletter section -->
         <div class="rounded-lg shadow-lg my-20 flex flex-row">
             <div class="w-full lg:w-3/5 bg-gradient-to-r from-black to-purple-900 lg:from-black lg:via-purple-900 lg:to-transparent rounded-lg text-gray-100 p-12">
@@ -395,7 +403,8 @@
                 <img src="/media/picscart/subscribe-banner.png" class="h-96">
             </div>
         </div>
-       
+
+       <hr>
 
         <!-- footer -->
         <div class="border-t-2 border-gray-300 flex flex-col md:flex-row md:justify-between text-center py-5 text-sm">
@@ -409,18 +418,33 @@
 
         
     </div>
+    
  {% comment %} javascript  for cart{% endcomment %}
-    <script>
-        let element = document.querySelectorAll('.cart');
-        let numb=document.getElementById('number');
-        let a=0;
-        numb.textContent='cart';
+ <script>
+    
+    let x =0;
+    document.getElementById("totalitem").innerHTML=x;
+    
+    function add(val){
 
-        element.addEventListener('click',() => {
-            
-            a=a+1;
-        });
-    </script>
+    document.getElementById("addeditem").innerHTML += "<li>"+val+"<input type='button' value='  🗑️' onclick='remove()'</li>";
+    x= x+1;
+    document.getElementById("totalitem").innerText=x;
+    }
+    // remove function 
+    //function remove(){
+        var listItem= document.getElementsByTagName("li");
+        for(var i=0; i<listItem.length; i++){
+            listItem[i].onclick=function(){
+                this.parentNode.removeChild(this);
+            }
+        }
+
+        x=x-1;
+        document.getElementById("totalitem").innerText=x;
+    }
+    </script> 
+    
 </body>
 </html>   
 

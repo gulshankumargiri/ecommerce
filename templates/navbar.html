@@ -19,9 +19,6 @@
             <a class="nav-link {% if request.path == "/about/" %} active {% endif %}" aria-current="page" href="/about/">About</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link {% if request.path == "/admin/" %} active {% endif %}" aria-current="page" href="/admin/">Admin Panel</a>
-          </li>
           
           {% if request.user.is_authenticated %}
 
@@ -33,6 +30,11 @@
             <a class="nav-link {% if request.path == "/user_logout/" %} active {% endif %}" aria-current="page" href="/user_logout/">Logout</a>
           </li>
           {% else %}
+          
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == "/admin/" %} active {% endif %}" aria-current="page" href="/admin/">Admin Panel</a>
+          </li>
+          
           <li class="nav-item">
             <a class="nav-link {% if request.path == "/sign_up/" %} active {% endif %}" aria-current="page" href="/sign_up/">Sign up</a>
           </li>
@@ -41,12 +43,7 @@
           <li class="nav-item">
             <a class="nav-link {% if request.path == "/login/" %} active {% endif %}" aria-current="page" href="/login/">login</a>
           </li>
-          {% comment %} {% else if %}
-          {% comment %} cart section 
-          {% if request.user.is_authenticated %}
-          <span class="storefront_add_to_cart">
-              <a href="{% url 'add_to_cart' book.id %}">[Add to Cart]</a>
-          </span> {% endcomment %}
+          
           {% endif %}
 
           
